@@ -1,0 +1,137 @@
+{
+  "measurement_type": "M-local",
+  "provenance": "Phase I local scalability fan-out benchmark",
+  "run_metadata": {
+    "timestamp_utc": "2026-08-18T11:00:52.092436+00:00",
+    "git_revision": "b3442b7af146e873945363d010c183d3a3a29fc9",
+    "python": "3.11.5",
+    "python_architecture": "arm64",
+    "platform": "macOS-26.4.1-arm64-arm-64bit",
+    "cpu": "Apple M3 Pro",
+    "physical_cores": 12,
+    "ram_bytes": 38654705664,
+    "hostname": "redacted",
+    "library_versions": {
+      "liboqs-python": "0.12.0",
+      "cryptography": "44.0.0",
+      "PyNaCl": "1.5.0",
+      "openssl": "OpenSSL 3.0.10 1 Aug 2023"
+    },
+    "warmup_policy": "none",
+    "summary_statistic": "arithmetic mean with min/max",
+    "ci95_method": "1.96 * sample standard deviation / sqrt(n)",
+    "azure_resource_group": "not-applicable",
+    "repetitions": 3,
+    "seed": null,
+    "algorithms": {
+      "kem": "ML-KEM-768",
+      "signature": "ML-DSA-65",
+      "classical_signature": "Ed25519",
+      "symmetric": "AES-256-GCM",
+      "classical_kex": "ECDH-P256"
+    },
+    "git_dirty": true,
+    "git_status_sha256": "aa7871aa87e7f8211cf44c0e22898fe493c17fb66969d4afd9091f52d5359fcc"
+  },
+  "pqc_results": [
+    {
+      "num_workers": 1,
+      "mean_time_ms": 11.699999999715752,
+      "min_time_ms": 11.173917000633082,
+      "max_time_ms": 12.388540999381803
+    },
+    {
+      "num_workers": 5,
+      "mean_time_ms": 56.57861166704,
+      "min_time_ms": 54.94866700064449,
+      "max_time_ms": 57.683084000018425
+    },
+    {
+      "num_workers": 10,
+      "mean_time_ms": 116.82905566703994,
+      "min_time_ms": 115.80991700066079,
+      "max_time_ms": 118.33412499981932
+    },
+    {
+      "num_workers": 25,
+      "mean_time_ms": 285.5378329998833,
+      "min_time_ms": 281.33866700045473,
+      "max_time_ms": 293.4410409998236
+    },
+    {
+      "num_workers": 50,
+      "mean_time_ms": 609.368222332705,
+      "min_time_ms": 601.9508339995809,
+      "max_time_ms": 623.3365829994
+    }
+  ],
+  "classical_results": [
+    {
+      "num_workers": 1,
+      "mean_time_ms": 0.28431933363511536,
+      "min_time_ms": 0.262999999904423,
+      "max_time_ms": 0.3163330002280418
+    },
+    {
+      "num_workers": 5,
+      "mean_time_ms": 1.1352363332359043,
+      "min_time_ms": 1.088417000573827,
+      "max_time_ms": 1.1927079995075474
+    },
+    {
+      "num_workers": 10,
+      "mean_time_ms": 2.2249859994190047,
+      "min_time_ms": 2.1603749992209487,
+      "max_time_ms": 2.3473330002161674
+    },
+    {
+      "num_workers": 25,
+      "mean_time_ms": 5.493166667899156,
+      "min_time_ms": 5.334750001566135,
+      "max_time_ms": 5.609667001408525
+    },
+    {
+      "num_workers": 50,
+      "mean_time_ms": 10.866472332660729,
+      "min_time_ms": 10.4822499997681,
+      "max_time_ms": 11.074332998759928
+    }
+  ],
+  "plot_data": {
+    "worker_counts": [
+      1,
+      5,
+      10,
+      25,
+      50
+    ],
+    "pqc_times": [
+      11.699999999715752,
+      56.57861166704,
+      116.82905566703994,
+      285.5378329998833,
+      609.368222332705
+    ],
+    "classical_times": [
+      0.28431933363511536,
+      1.1352363332359043,
+      2.2249859994190047,
+      5.493166667899156,
+      10.866472332660729
+    ],
+    "pqc_throughput": [
+      85.47008547216194,
+      88.37261736686906,
+      85.59514534209508,
+      87.55407203783822,
+      82.05219466252511
+    ],
+    "classical_throughput": [
+      3517.1720023913745,
+      4404.369252125575,
+      4494.410303081112,
+      4551.108952527226,
+      4601.309281367964
+    ]
+  }
+}

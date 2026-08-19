@@ -1,0 +1,102 @@
+services:
+  # Orchestrator Agent with nginx-oqs proxy
+  orchestrator:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: orchestrator-agent
+    environment:
+      - AGENT_TYPE=orchestrator
+      - AGENT_ID=orchestrator_agent
+      - AGENT_PORT=8000
+      - WORKER_ENDPOINTS=https://worker1-proxy:8443,https://worker2-proxy:8443
+      - QSC_BOOTSTRAP_TOKEN=${QSC_BOOTSTRAP_TOKEN:?Set QSC_BOOTSTRAP_TOKEN to at least 32 characters}
+      - QSC_CA_BUNDLE=/app/certs/ca.crt
+    ports:
+      - "8000:8000"
+    networks:
+      - pqc-network
+    volumes:
+      - ../certs:/app/certs:ro
+    command: python -m src.pqc_agents.orchestrator_server
+
+  orchestrator-proxy:
+    image: openquantumsafe/nginx@sha256:4fe9d9c284ecfa561d668ea312ac5c448894fec532e5e5e4bfd7b4d823947d2e
+    container_name: orchestrator-proxy
+    ports:
+      - "8443:8443"
+    volumes:
+      - ./nginx/orchestrator.conf:/etc/nginx/nginx.conf:ro
+      - ../certs:/etc/nginx/certs:ro
+    depends_on:
+      - orchestrator
+    networks:
+      - pqc-network
+
+  # Worker Agent 1 with nginx-oqs proxy
+  worker1:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: worker1-agent
+    environment:
+      - AGENT_TYPE=worker
+      - AGENT_ID=worker_agent_1
+      - AGENT_PORT=8001
+      - QSC_BOOTSTRAP_TOKEN=${QSC_BOOTSTRAP_TOKEN:?Set QSC_BOOTSTRAP_TOKEN to at least 32 characters}
+    ports:
+      - "8001:8001"
+    networks:
+      - pqc-network
+    volumes:
+      - ../certs:/app/certs:ro
+    command: python -m src.pqc_agents.worker_server
+
+  worker1-proxy:
+    image: openquantumsafe/nginx@sha256:4fe9d9c284ecfa561d668ea312ac5c448894fec532e5e5e4bfd7b4d823947d2e
+    container_name: worker1-proxy
+    ports:
+      - "8444:8443"
+    volumes:
+      - ./nginx/worker.conf:/etc/nginx/nginx.conf:ro
+      - ../certs:/etc/nginx/certs:ro
+    depends_on:
+      - worker1
+    networks:
+      - pqc-network
+
+  # Worker Agent 2 with nginx-oqs proxy
+  worker2:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: worker2-agent
+    environment:
+      - AGENT_TYPE=worker
+      - AGENT_ID=worker_agent_2
+      - AGENT_PORT=8002
+      - QSC_BOOTSTRAP_TOKEN=${QSC_BOOTSTRAP_TOKEN:?Set QSC_BOOTSTRAP_TOKEN to at least 32 characters}
+    ports:
+      - "8002:8002"
+    networks:
+      - pqc-network
+    volumes:
+      - ../certs:/app/certs:ro
+    command: python -m src.pqc_agents.worker_server
+
+  worker2-proxy:
+    image: openquantumsafe/nginx@sha256:4fe9d9c284ecfa561d668ea312ac5c448894fec532e5e5e4bfd7b4d823947d2e
+    container_name: worker2-proxy
+    ports:
+      - "8445:8443"
+    volumes:
+      - ./nginx/worker2.conf:/etc/nginx/nginx.conf:ro
+      - ../certs:/etc/nginx/certs:ro
+    depends_on:
+      - worker2
+    networks:
+      - pqc-network
+
+networks:
+  pqc-network:
+    driver: bridge

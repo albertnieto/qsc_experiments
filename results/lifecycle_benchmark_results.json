@@ -1,0 +1,221 @@
+{
+  "operational_steps": {
+    "pqc": {
+      "bootstrap_session": {
+        "count": 50,
+        "mean_ms": 3.196984140013228,
+        "min_ms": 2.4383340005442733,
+        "max_ms": 4.556750000119791,
+        "total_ms": 159.8492070006614,
+        "total_bytes": 0,
+        "stdev_ms": 0.49500222263434945,
+        "ci95_ms": 0.13720761590424735
+      },
+      "task_graph_construction_sign": {
+        "count": 100,
+        "mean_ms": 0.2894512499369739,
+        "min_ms": 0.1054580006893957,
+        "max_ms": 1.3949169988336507,
+        "total_ms": 28.94512499369739,
+        "total_bytes": 0,
+        "stdev_ms": 0.2036158098861671,
+        "ci95_ms": 0.03990869873768875
+      },
+      "qkd_key_establishment_sim": {
+        "count": 1,
+        "mean_ms": 16.573375000007218,
+        "min_ms": 16.573375000007218,
+        "max_ms": 16.573375000007218,
+        "total_ms": 16.573375000007218,
+        "total_bytes": 0,
+        "stdev_ms": 0.0,
+        "ci95_ms": 0.0
+      },
+      "qrng_nonce_generation": {
+        "count": 100,
+        "mean_ms": 0.0018203499530500267,
+        "min_ms": 0.0014170000213198364,
+        "max_ms": 0.019499999325489625,
+        "total_ms": 0.18203499530500267,
+        "total_bytes": 0,
+        "stdev_ms": 0.0018236290926128566,
+        "ci95_ms": 0.0003574313021521199
+      },
+      "agent_communication_encrypt": {
+        "count": 100,
+        "mean_ms": 0.0413008700706996,
+        "min_ms": 0.005957999746897258,
+        "max_ms": 3.389749999769265,
+        "total_ms": 4.13008700706996,
+        "total_bytes": 0,
+        "stdev_ms": 0.3382578881845269,
+        "ci95_ms": 0.06629854608416727
+      },
+      "agent_communication_decrypt": {
+        "count": 100,
+        "mean_ms": 0.005177930070203729,
+        "min_ms": 0.004207999154459685,
+        "max_ms": 0.02829200093401596,
+        "total_ms": 0.5177930070203729,
+        "total_bytes": 0,
+        "stdev_ms": 0.0031084987933288426,
+        "ci95_ms": 0.0006092657634924532
+      },
+      "agent_communication_e2e": {
+        "count": 100,
+        "mean_ms": 0.0664304200472543,
+        "min_ms": 0.025417000870220363,
+        "max_ms": 3.4937499985971954,
+        "total_ms": 6.64304200472543,
+        "total_bytes": 0,
+        "stdev_ms": 0.3464989351414413,
+        "ci95_ms": 0.0679137912877225
+      }
+    },
+    "classical": {
+      "bootstrap_session": {
+        "count": 50,
+        "mean_ms": 0.20406664010806708,
+        "min_ms": 0.1922920000652084,
+        "max_ms": 0.35708399991563056,
+        "total_ms": 10.203332005403354,
+        "total_bytes": 0,
+        "stdev_ms": 0.02433220972683521,
+        "ci95_ms": 0.006744544435646591
+      },
+      "task_graph_construction_sign": {
+        "count": 100,
+        "mean_ms": 0.06689082996672369,
+        "min_ms": 0.05758299994340632,
+        "max_ms": 0.17029099944920745,
+        "total_ms": 6.689082996672369,
+        "total_bytes": 0,
+        "stdev_ms": 0.012091233936389523,
+        "ci95_ms": 0.0023698818515323463
+      },
+      "agent_communication_e2e": {
+        "count": 100,
+        "mean_ms": 0.20559835007588845,
+        "min_ms": 0.19166700076311827,
+        "max_ms": 0.2932500010501826,
+        "total_ms": 20.559835007588845,
+        "total_bytes": 0,
+        "stdev_ms": 0.016233138065815996,
+        "ci95_ms": 0.0031816950608999353
+      }
+    }
+  },
+  "scalability": {
+    "pqc_results": [
+      {
+        "num_workers": 1,
+        "mean_time_ms": 11.789930333785984,
+        "min_time_ms": 11.054375001549488,
+        "max_time_ms": 13.205833000029088
+      },
+      {
+        "num_workers": 5,
+        "mean_time_ms": 54.51223599993682,
+        "min_time_ms": 53.34562499956519,
+        "max_time_ms": 56.013082999925246
+      },
+      {
+        "num_workers": 10,
+        "mean_time_ms": 98.9580553335448,
+        "min_time_ms": 95.08616600032838,
+        "max_time_ms": 105.00150000007125
+      },
+      {
+        "num_workers": 25,
+        "mean_time_ms": 238.02830533410693,
+        "min_time_ms": 234.4751250002446,
+        "max_time_ms": 243.4924580011284
+      },
+      {
+        "num_workers": 50,
+        "mean_time_ms": 533.6310973331516,
+        "min_time_ms": 492.22116700002516,
+        "max_time_ms": 566.332374999547
+      }
+    ],
+    "classical_results": [
+      {
+        "num_workers": 1,
+        "mean_time_ms": 0.27499966624115285,
+        "min_time_ms": 0.26045799859275576,
+        "max_time_ms": 0.3027910006494494
+      },
+      {
+        "num_workers": 5,
+        "mean_time_ms": 1.1123053342695737,
+        "min_time_ms": 1.0958750008285278,
+        "max_time_ms": 1.1290830007055774
+      },
+      {
+        "num_workers": 10,
+        "mean_time_ms": 2.1345416662370553,
+        "min_time_ms": 2.0997499996155966,
+        "max_time_ms": 2.186666999477893
+      },
+      {
+        "num_workers": 25,
+        "mean_time_ms": 5.278167000142275,
+        "min_time_ms": 5.185292000533082,
+        "max_time_ms": 5.340042000170797
+      },
+      {
+        "num_workers": 50,
+        "mean_time_ms": 10.539986666723658,
+        "min_time_ms": 10.307709000699106,
+        "max_time_ms": 10.826458999872557
+      }
+    ],
+    "scope": "non-canonical integration snapshot; use scalability_results.json for manuscript claims"
+  },
+  "security_resilience": {
+    "tampered_injected": 2460,
+    "tampered_detected": 2460,
+    "replay_injected": 2406,
+    "replay_detected": 2406,
+    "legitimate_success": 95134,
+    "legitimate_failed": 0
+  },
+  "canonical_related_artifacts": {
+    "scalability": "scalability_results.json",
+    "security": "security_results.json"
+  },
+  "measurement_type": "mixed",
+  "provenance": "M-local lifecycle benchmark with Model-QKD timing and S-simulation attacks",
+  "run_metadata": {
+    "timestamp_utc": "2026-08-18T11:12:09.690465+00:00",
+    "git_revision": "b3442b7af146e873945363d010c183d3a3a29fc9",
+    "python": "3.11.5",
+    "python_architecture": "arm64",
+    "platform": "macOS-26.4.1-arm64-arm-64bit",
+    "cpu": "Apple M3 Pro",
+    "physical_cores": 12,
+    "ram_bytes": 38654705664,
+    "hostname": "redacted",
+    "library_versions": {
+      "liboqs-python": "0.12.0",
+      "cryptography": "44.0.0",
+      "PyNaCl": "1.5.0",
+      "openssl": "OpenSSL 3.0.10 1 Aug 2023"
+    },
+    "warmup_policy": "none",
+    "summary_statistic": "arithmetic mean with min/max",
+    "ci95_method": "1.96 * sample standard deviation / sqrt(n)",
+    "azure_resource_group": "not-applicable",
+    "repetitions": 100000,
+    "seed": null,
+    "algorithms": {
+      "kem": "ML-KEM-768",
+      "signature": "ML-DSA-65",
+      "classical_signature": "Ed25519",
+      "symmetric": "AES-256-GCM",
+      "classical_kex": "ECDH-P256"
+    },
+    "git_dirty": true,
+    "git_status_sha256": "0e50c79e61801bbd4d72b44baca32e56433289460c2da6e5c05ca4e674722999"
+  }
+}

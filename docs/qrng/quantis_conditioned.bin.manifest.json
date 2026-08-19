@@ -1,0 +1,18 @@
+{
+  "created_utc": "2026-07-07T10:16:03.316766+00:00",
+  "host": {
+    "platform": "macOS-26.3-arm64-arm-64bit",
+    "python": "3.11.5",
+    "node": "US_F2X2PH26MX"
+  },
+  "output_file": "quantis_conditioned.bin",
+  "size_bytes": 1073741824,
+  "sha256": "d2f3a0de24f046c1167313625b6986749145e3448c057bbe50e4b34702de7c18",
+  "capture_method": "cli",
+  "cli_version": "EasyQuantis 1.4 (x86_64 via Rosetta 2)",
+  "declared_mode": "conditioned",
+  "device_index": 0,
+  "model": "Quantis USB",
+  "firmware": "core 0x060b1c01",
+  "notes": "Default/conditioned output. EasyQuantis USB exposes vendor-postprocessed output and no detector-level raw mode."
+}

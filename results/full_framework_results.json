@@ -1,0 +1,155 @@
+{
+  "channel_1": {
+    "pqc": 0.031747079992783256,
+    "classical": 0.2159541699984402
+  },
+  "channel_2": {
+    "pqc": 3.3561299997745664,
+    "classical": 0.20141086002695374
+  },
+  "channel_3": {
+    "pqc": 0.5739354199795343,
+    "classical": 0.11950042000535177
+  },
+  "channel_4": {
+    "pqc": 0.2290779100076179,
+    "classical": 0.15576124998915475
+  },
+  "channel_5": {
+    "pqc": 0.5507050000051095,
+    "classical": 0.09183500000290223
+  },
+  "channel_6": {
+    "pqc": 0.1375666599960823,
+    "classical": 0.2589912500116043
+  },
+  "channel_7": {
+    "pqc": 1.0030409994215006,
+    "classical": 1.9728339988330845
+  },
+  "measurement_type": "mixed",
+  "provenance": "M-local seven-channel protocol benchmark with Model-QKD latency; security and scalability use their dedicated canonical artifacts",
+  "canonical_related_artifacts": {
+    "security": "security_results.json",
+    "scalability": "scalability_results.json"
+  },
+  "channel_metadata": {
+    "channel_1": {
+      "label": "1. User -> Orchestrator",
+      "layers": [
+        "ML-KEM",
+        "ML-DSA",
+        "AES-256-GCM",
+        "QRNG"
+      ],
+      "qrng_in_timing": true,
+      "model_qkd_in_timing": false,
+      "scope": "routine exchange plus amortized session setup"
+    },
+    "channel_2": {
+      "label": "2. Orchestrator <-> Agent Handshake",
+      "layers": [
+        "ML-KEM",
+        "ML-DSA",
+        "QRNG"
+      ],
+      "qrng_in_timing": true,
+      "model_qkd_in_timing": false,
+      "scope": "complete authenticated session setup"
+    },
+    "channel_3": {
+      "label": "3. Orchestrator -> MCP Server",
+      "layers": [
+        "ML-KEM",
+        "ML-DSA",
+        "AES-256-GCM",
+        "QRNG",
+        "Model-QKD"
+      ],
+      "qrng_in_timing": true,
+      "model_qkd_in_timing": true,
+      "scope": "routine exchange plus amortized session setup"
+    },
+    "channel_4": {
+      "label": "4. Agent <- MCP Server (Fetch)",
+      "layers": [
+        "ML-KEM",
+        "ML-DSA",
+        "AES-256-GCM",
+        "QRNG",
+        "Model-QKD"
+      ],
+      "qrng_in_timing": true,
+      "model_qkd_in_timing": true,
+      "scope": "fetch plus amortized session setup"
+    },
+    "channel_5": {
+      "label": "5. Agent -> MCP Server (Publish)",
+      "layers": [
+        "ML-KEM",
+        "ML-DSA",
+        "AES-256-GCM",
+        "QRNG",
+        "Model-QKD"
+      ],
+      "qrng_in_timing": true,
+      "model_qkd_in_timing": true,
+      "scope": "routine exchange plus amortized session setup"
+    },
+    "channel_6": {
+      "label": "6. Agent <-> Agent (via Shared Memory)",
+      "layers": [
+        "ML-KEM",
+        "ML-DSA",
+        "AES-256-GCM",
+        "QRNG",
+        "Model-QKD"
+      ],
+      "qrng_in_timing": true,
+      "model_qkd_in_timing": true,
+      "scope": "routine exchange plus amortized session setup"
+    },
+    "channel_7": {
+      "label": "7. Orchestrator <- MCP (Aggregation)",
+      "layers": [
+        "ML-DSA",
+        "AES-256-GCM"
+      ],
+      "qrng_in_timing": false,
+      "model_qkd_in_timing": false,
+      "scope": "aggregation only; setup and publication are excluded"
+    }
+  },
+  "run_metadata": {
+    "timestamp_utc": "2026-08-18T11:00:55.876735+00:00",
+    "git_revision": "b3442b7af146e873945363d010c183d3a3a29fc9",
+    "python": "3.11.5",
+    "python_architecture": "arm64",
+    "platform": "macOS-26.4.1-arm64-arm-64bit",
+    "cpu": "Apple M3 Pro",
+    "physical_cores": 12,
+    "ram_bytes": 38654705664,
+    "hostname": "redacted",
+    "library_versions": {
+      "liboqs-python": "0.12.0",
+      "cryptography": "44.0.0",
+      "PyNaCl": "1.5.0",
+      "openssl": "OpenSSL 3.0.10 1 Aug 2023"
+    },
+    "warmup_policy": "none",
+    "summary_statistic": "arithmetic mean with min/max",
+    "ci95_method": "1.96 * sample standard deviation / sqrt(n)",
+    "azure_resource_group": "not-applicable",
+    "repetitions": null,
+    "seed": null,
+    "algorithms": {
+      "kem": "ML-KEM-768",
+      "signature": "ML-DSA-65",
+      "classical_signature": "Ed25519",
+      "symmetric": "AES-256-GCM",
+      "classical_kex": "ECDH-P256"
+    },
+    "git_dirty": true,
+    "git_status_sha256": "aa7871aa87e7f8211cf44c0e22898fe493c17fb66969d4afd9091f52d5359fcc"
+  }
+}

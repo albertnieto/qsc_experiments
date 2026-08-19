@@ -1,0 +1,125 @@
+{
+  "measurement_type": "M-QRNG",
+  "provenance": "M-QRNG: live ID Quantique Quantis USB probe; vendor-postprocessed output",
+  "run_metadata": {
+    "timestamp_utc": "2026-07-07T10:59:00Z",
+    "source_repository": "Quantum_QRNG_Assessment",
+    "source_git_revision": "679f46a4796de7f5d88f9eade8279cc9c9d83adf",
+    "source_git_dirty": true,
+    "python": "3.11.5",
+    "platform": "macOS-26.3-arm64-arm-64bit",
+    "hostname": "redacted",
+    "operator": "collaborator",
+    "repetitions": 1,
+    "samples": 1,
+    "sample_bytes": 16777216
+  },
+  "provider": {
+    "measurement_type": "hardware",
+    "provider": "ID Quantique Quantis USB",
+    "device_name": "Quantis USB",
+    "device_index": 0,
+    "serial": "206406A410",
+    "firmware": "core 0x060b1c01",
+    "sdk_version": "EasyQuantis 1.4 (x86_64 via Rosetta 2)",
+    "quantum_source": true,
+    "output_mode": "vendor-postprocessed",
+    "raw_detector_output_available": false
+  },
+  "metrics": {
+    "live_capture_bytes": 16777216,
+    "live_capture_seconds": 34.18514879098802,
+    "live_read_bytes_per_second": 490774.9883605261,
+    "live_read_mib_per_second": 0.46803950153401,
+    "live_read_mbit_per_second": 3.9261999068842086,
+    "live_read_mibits_per_second": 3.74431601227208,
+    "source_reported_mb_per_second": 0.46803950153401,
+    "source_reported_mbit_per_second": 3.74431601227208,
+    "spec_mbit_per_second": 4.0,
+    "raw_bytes_per_256bit_key": 1024,
+    "device_limited_keys_per_second": 479.27244957082627
+  },
+  "entropy_diagnostics": {
+    "as_captured": {
+      "label": "delivered_vendor_postprocessed",
+      "n_bytes": 16777216,
+      "shannon_bits_per_byte": 7.999987115300953,
+      "mcv_min_entropy_per_byte": 7.9711557134247375,
+      "mcv_min_entropy_per_bit": 0.9995132898194019,
+      "health_tests": {
+        "repetition_count": {
+          "test": "RepetitionCount",
+          "cutoff": 4,
+          "window": 1,
+          "n_symbols": 16777216,
+          "n_failures": 0,
+          "expected_false_alarms": 16.0,
+          "passed": true
+        },
+        "adaptive_proportion": {
+          "test": "AdaptiveProportion",
+          "cutoff": 13,
+          "window": 512,
+          "n_symbols": 16777216,
+          "n_failures": 0,
+          "expected_false_alarms": 0.03125,
+          "passed": true
+        }
+      }
+    },
+    "after_von_neumann": {
+      "label": "von_neumann_debiased",
+      "n_bytes": 4195705,
+      "shannon_bits_per_byte": 7.999955345254329,
+      "mcv_min_entropy_per_byte": 7.938526592744962,
+      "mcv_min_entropy_per_bit": 0.9988780965687638,
+      "health_tests": {
+        "repetition_count": {
+          "test": "RepetitionCount",
+          "cutoff": 4,
+          "window": 1,
+          "n_symbols": 4195705,
+          "n_failures": 0,
+          "expected_false_alarms": 4.001336097717285,
+          "passed": true
+        },
+        "adaptive_proportion": {
+          "test": "AdaptiveProportion",
+          "cutoff": 13,
+          "window": 512,
+          "n_symbols": 4195328,
+          "n_failures": 0,
+          "expected_false_alarms": 0.007814407348632812,
+          "passed": true
+        }
+      }
+    },
+    "conditioning": {
+      "method": "VonNeumann_debias",
+      "input_bytes": 16777216,
+      "output_bytes": 4195705,
+      "yield_ratio": 0.2500835061073303
+    }
+  },
+  "artifacts": {
+    "probe_report": {
+      "sha256": "7cd869c274817dd5e2cb5d5cba5bf159e08cb93f2fe7a00fb24af0559e99f787",
+      "size_bytes": 2173
+    },
+    "capture_manifest": {
+      "sha256": "68a69611dd7ed9f2c4d5fc44576dedb593e21caf8d8d3ebdac6eeb80b1cc42dd",
+      "size_bytes": 649
+    },
+    "capture": {
+      "sha256": "d2f3a0de24f046c1167313625b6986749145e3448c057bbe50e4b34702de7c18",
+      "size_bytes": 1073741824
+    }
+  },
+  "limitations": [
+    "EasyQuantis USB exposes vendor-postprocessed output, not detector-level raw entropy.",
+    "The live throughput observation is device I/O; it is not the disk speed of a replayed capture.",
+    "Decimal Mbit/s and binary MiB/s/Mibit/s are recomputed from captured bytes and elapsed seconds; source-reported labels are retained separately.",
+    "The restart dataset restarted the host CLI process, not the physical USB entropy source."
+  ],
+  "disclaimer": "This artifact records a real-device provider observation and its provenance. It does not certify the inaccessible detector-level entropy source or establish cryptographic security by itself."
+}

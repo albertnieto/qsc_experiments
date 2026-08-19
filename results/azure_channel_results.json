@@ -1,0 +1,153 @@
+{
+  "measurement_type": "M-cloud",
+  "provenance": "M-cloud PQC-TLS health-endpoint RTT; this is transport reachability, not a complete seven-channel application transaction",
+  "tls_certificate_verification": true,
+  "tls_trust_source": "QSC_CA_BUNDLE",
+  "measurement_vantage": "in-region Azure client (East US ACI) reaching the East US sidecar endpoints; the run was performed inside Azure so the genuine QSC private-CA certificate is presented and validated, avoiding corporate TLS-inspection re-signing on external networks. Reported values are intra-region transport reachability, not client-to-cloud wide-area latency.",
+  "run_metadata": {
+    "timestamp_utc": "2026-08-18T12:19:29.684696+00:00",
+    "git_revision": "unavailable",
+    "python": "3.11.16",
+    "python_architecture": "x86_64",
+    "platform": "Linux-6.1.146.1-microsoft-standard-x86_64-with-glibc2.41",
+    "cpu": "x86_64",
+    "physical_cores": 1,
+    "ram_bytes": 1559302144,
+    "hostname": "redacted",
+    "library_versions": {
+      "liboqs-python": "0.14.0",
+      "cryptography": "50.0.0",
+      "PyNaCl": "1.6.2",
+      "openssl": "OpenSSL 3.5.6 7 Apr 2026"
+    },
+    "warmup_policy": "none",
+    "summary_statistic": "arithmetic mean with min/max",
+    "ci95_method": "1.96 * sample standard deviation / sqrt(n)",
+    "azure_resource_group": "quantum-sandbox",
+    "repetitions": 20,
+    "seed": null,
+    "algorithms": {
+      "kem": "ML-KEM-768",
+      "signature": "ML-DSA-65",
+      "classical_signature": "Ed25519",
+      "symmetric": "AES-256-GCM",
+      "classical_kex": "ECDH-P256"
+    },
+    "git_dirty": null,
+    "git_status_sha256": "unavailable"
+  },
+  "endpoints": {
+    "orchestrator": {
+      "url_role": "orchestrator",
+      "repetitions": 20,
+      "status_codes": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "mean_ms": 23.989629550000213,
+      "median_ms": 22.45468000000006,
+      "min_ms": 15.155873000001208,
+      "max_ms": 56.66635600000092,
+      "measurement_type": "M-cloud"
+    },
+    "worker1": {
+      "url_role": "worker1",
+      "repetitions": 20,
+      "status_codes": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "mean_ms": 19.626515150000046,
+      "median_ms": 16.79521749999946,
+      "min_ms": 14.133583999999644,
+      "max_ms": 37.15559800000001,
+      "measurement_type": "M-cloud"
+    },
+    "worker2": {
+      "url_role": "worker2",
+      "repetitions": 20,
+      "status_codes": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "mean_ms": 16.84625405000011,
+      "median_ms": 15.943300500000035,
+      "min_ms": 12.464354000000455,
+      "max_ms": 25.597764000000467,
+      "measurement_type": "M-cloud"
+    }
+  },
+  "seven_channel_mapping": {
+    "1": "orchestrator",
+    "2": "orchestrator-worker handshake path; health proxy only",
+    "3": "orchestrator",
+    "4": "worker1",
+    "5": "worker1",
+    "6": "worker2",
+    "7": "orchestrator"
+  },
+  "qkd_model": {
+    "measurement_type": "Model-QKD",
+    "parameters": {
+      "measurement_type": "Model-QKD",
+      "provider": "qkd-simulator",
+      "establishment_latency_ms": 10.0,
+      "physical_qkd": false
+    },
+    "note": "Not included in measured Azure RTT values."
+  }
+}

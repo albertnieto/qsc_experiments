@@ -1,0 +1,53 @@
+{
+  "measurement_type": "M-local",
+  "provenance": "Phase I local KEM benchmark",
+  "run_metadata": {
+    "timestamp_utc": "2026-08-18T11:00:47.769625+00:00",
+    "git_revision": "b3442b7af146e873945363d010c183d3a3a29fc9",
+    "python": "3.11.5",
+    "python_architecture": "arm64",
+    "platform": "macOS-26.4.1-arm64-arm-64bit",
+    "cpu": "Apple M3 Pro",
+    "physical_cores": 12,
+    "ram_bytes": 38654705664,
+    "hostname": "redacted",
+    "library_versions": {
+      "liboqs-python": "0.12.0",
+      "cryptography": "44.0.0",
+      "PyNaCl": "1.5.0",
+      "openssl": "OpenSSL 3.0.10 1 Aug 2023"
+    },
+    "warmup_policy": "none",
+    "summary_statistic": "arithmetic mean with min/max",
+    "ci95_method": "1.96 * sample standard deviation / sqrt(n)",
+    "azure_resource_group": "not-applicable",
+    "repetitions": 1000,
+    "seed": null,
+    "algorithms": {
+      "kem": "ML-KEM-768",
+      "signature": "ML-DSA-65",
+      "classical_signature": "Ed25519",
+      "symmetric": "AES-256-GCM",
+      "classical_kex": "ECDH-P256"
+    },
+    "git_dirty": true,
+    "git_status_sha256": "aa7871aa87e7f8211cf44c0e22898fe493c17fb66969d4afd9091f52d5359fcc"
+  },
+  "kem": {
+    "algorithm": "ML-KEM-768",
+    "encapsulation_mean_ms": 0.030075545993895503,
+    "encapsulation_ci95_ms": 0.0004869004044716885,
+    "decapsulation_mean_ms": 0.03592019196912588,
+    "decapsulation_ci95_ms": 0.00046845106497021713,
+    "public_key_size_bytes": 1184,
+    "ciphertext_size_bytes": 1088,
+    "peak_rss_bytes": 35078144,
+    "peak_rss_source_unit": "bytes",
+    "wire_bytes_per_exchange": 2304
+  },
+  "ecdh": {
+    "key_exchange_mean_ms": 0.13240868998946098,
+    "key_exchange_ci95_ms": 0.019452534872258842,
+    "public_key_size_bytes": 65
+  }
+}

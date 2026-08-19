@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orchestrator-agent
+  labels:
+    app: orchestrator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orchestrator
+  template:
+    metadata:
+      labels:
+        app: orchestrator
+    spec:
+      containers:
+      - name: orchestrator
+        image: YOUR_ACR_LOGIN_SERVER/qsc-experiments:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: AGENT_TYPE
+          value: "orchestrator"
+        - name: AGENT_ID
+          value: "orchestrator_agent"
+        - name: AGENT_PORT
+          value: "8000"
+        - name: WORKER_ENDPOINTS
+          value: "https://worker-service:8443"
+        command: ["python", "-m", "src.pqc_agents.orchestrator_server"]
+        resources:
+          requests:
+            memory: "2Gi"
+            cpu: "1000m"
+          limits:
+            memory: "4Gi"
+            cpu: "2000m"
+      - name: nginx-oqs
+        image: openquantumsafe/nginx@sha256:4fe9d9c284ecfa561d668ea312ac5c448894fec532e5e5e4bfd7b4d823947d2e
+        ports:
+        - containerPort: 8443
+        volumeMounts:
+        - name: nginx-config
+          mountPath: /etc/nginx/nginx.conf
+          subPath: orchestrator.conf
+        - name: certs
+          mountPath: /etc/nginx/certs
+          readOnly: true
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: nginx-config
+      - name: certs
+        secret:
+          secretName: tls-certs
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: orchestrator-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: orchestrator
+  ports:
+  - name: https
+    port: 8443
+    targetPort: 8443
+  - name: http
+    port: 8000
+    targetPort: 8000

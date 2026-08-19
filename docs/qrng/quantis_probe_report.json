@@ -1,0 +1,79 @@
+{
+  "numpy_accelerated": true,
+  "spec_mbit_s": 4.0,
+  "mode": "vendor-postprocessed",
+  "model": "Quantis USB",
+  "firmware": "core 0x060b1c01",
+  "source": {
+    "kind": "live",
+    "cli_version": "EasyQuantis 1.4 (x86_64 via Rosetta 2)"
+  },
+  "throughput": {
+    "measured_read_mb_s": 0.46803950153401,
+    "measured_read_mbit_s": 3.74431601227208,
+    "spec_mbit_s": 4.0,
+    "raw_bytes_per_key": 1024,
+    "keys_per_sec_device_limited": 479.27244957082627,
+    "seconds_for_sample": 34.18514879098802
+  },
+  "raw": {
+    "label": "delivered_vendor_postprocessed",
+    "n_bytes": 16777216,
+    "shannon_bits_per_byte": 7.999987115300953,
+    "mcv_min_entropy_per_byte": 7.9711557134247375,
+    "mcv_min_entropy_per_bit": 0.9995132898194019,
+    "health_tests": {
+      "repetition_count": {
+        "test": "RepetitionCount",
+        "cutoff": 4,
+        "window": 1,
+        "n_symbols": 16777216,
+        "n_failures": 0,
+        "expected_false_alarms": 16.0,
+        "passed": true
+      },
+      "adaptive_proportion": {
+        "test": "AdaptiveProportion",
+        "cutoff": 13,
+        "window": 512,
+        "n_symbols": 16777216,
+        "n_failures": 0,
+        "expected_false_alarms": 0.03125,
+        "passed": true
+      }
+    }
+  },
+  "conditioned": {
+    "label": "von_neumann_debiased",
+    "n_bytes": 4195705,
+    "shannon_bits_per_byte": 7.999955345254329,
+    "mcv_min_entropy_per_byte": 7.938526592744962,
+    "mcv_min_entropy_per_bit": 0.9988780965687638,
+    "health_tests": {
+      "repetition_count": {
+        "test": "RepetitionCount",
+        "cutoff": 4,
+        "window": 1,
+        "n_symbols": 4195705,
+        "n_failures": 0,
+        "expected_false_alarms": 4.001336097717285,
+        "passed": true
+      },
+      "adaptive_proportion": {
+        "test": "AdaptiveProportion",
+        "cutoff": 13,
+        "window": 512,
+        "n_symbols": 4195328,
+        "n_failures": 0,
+        "expected_false_alarms": 0.007814407348632812,
+        "passed": true
+      }
+    }
+  },
+  "conditioning": {
+    "method": "VonNeumann_debias",
+    "input_bytes": 16777216,
+    "output_bytes": 4195705,
+    "yield_ratio": 0.2500835061073303
+  }
+}

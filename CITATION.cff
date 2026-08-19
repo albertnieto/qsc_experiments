@@ -1,0 +1,51 @@
+cff-version: 1.2.0
+title: "QSC Multi-Agent Security Experiments"
+message: "Please cite the QSC paper (preferred-citation) and this software artifact."
+type: software
+abstract: >-
+  Reproducible experiments for a quantum-secure-by-construction
+  post-quantum multi-agent communication framework.
+authors:
+  - family-names: Bishwas
+    given-names: "Arit Kumar"
+    affiliation: "PricewaterhouseCoopers USA"
+  - family-names: Sen
+    given-names: Mousumi
+    affiliation: "Independent Researcher, USA"
+  - family-names: Nieto-Morales
+    given-names: Albert
+    affiliation: "PricewaterhouseCoopers USA"
+  - family-names: Varghese
+    given-names: "Joel Jacob"
+    affiliation: "PricewaterhouseCoopers USA"
+repository-code: "https://github.com/albertnieto/qsc_experiments"
+copyright: "© 2026 PricewaterhouseCoopers LLP (PwC US)"
+# After the Zenodo deposit, add the assigned DOI as the top-level `doi` value.
+license: MIT
+version: 1.0.0
+date-released: "2026-08-19"
+keywords:
+  - post-quantum cryptography
+  - multi-agent systems
+  - ML-KEM
+  - ML-DSA
+  - reproducible research
+preferred-citation:
+  type: article
+  title: "Quantum-Secure-By-Construction (QSC): A Paradigm Shift For Post-Quantum Agentic Intelligence"
+  authors:
+    - family-names: Bishwas
+      given-names: "Arit Kumar"
+    - family-names: Sen
+      given-names: Mousumi
+      affiliation: "Independent Researcher, USA"
+    - family-names: Nieto-Morales
+      given-names: Albert
+    - family-names: Varghese
+      given-names: "Joel Jacob"
+  year: 2026
+  url: "https://arxiv.org/abs/2603.15668"
+  identifiers:
+    - type: other
+      value: "arXiv:2603.15668"
+      description: arXiv preprint

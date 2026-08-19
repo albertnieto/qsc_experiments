@@ -1,0 +1,165 @@
+
+## Key Findings for Paper
+
+1. **Full Agent Identity Generation**: Average 0.21ms per ML-DSA-65 + ML-KEM-768 identity
+2. **Signing**: Average 0.26ms per signature
+3. **Verification**: Average 0.07ms per verification
+4. **Handshake**: Average 5.64ms for complete authentication
+5. **QRNG Query ID**: Average 0.0013ms (768431 IDs/sec)
+6. **QKD Key Establishment**: Average 11.7779ms
+7. **Query Delegation**: Average 11.31ms end-to-end
+8. **Throughput**: ~88.44 secure queries/second
+
+
+## Performance Results
+
+| Operation | Count | Mean (ms) | Min (ms) | Max (ms) |
+|-----------|-------|-----------|----------|----------|
+| Full Agent Identity Generation | 100 | 0.21 | 0.16 | 3.58 |
+| Key Size | 100 | 0.00 | 0.00 | 0.00 |
+| Sign Message | 100 | 0.26 | 0.11 | 1.02 |
+| Signature Size | 100 | 0.00 | 0.00 | 0.00 |
+| Verify Signature | 100 | 0.07 | 0.07 | 0.13 |
+| Handshake Full | 50 | 5.64 | 4.63 | 7.05 |
+| Qrng Query Id | 1000 | 0.00 | 0.00 | 0.01 |
+| Qrng Nonce | 1000 | 0.00 | 0.00 | 0.00 |
+| Qrng Session Key | 1000 | 0.00 | 0.00 | 0.04 |
+| Qkd Establish Key | 100 | 11.78 | 10.03 | 12.54 |
+| Qkd Retrieve Key | 100 | 0.01 | 0.00 | 0.01 |
+| Message Overhead Small | 1 | 0.00 | 0.00 | 0.00 |
+| Message Overhead Large | 1 | 0.00 | 0.00 | 0.00 |
+| Query Delegation Full | 10 | 11.31 | 10.14 | 12.13 |
+
+
+% LaTeX Table - Copy to paper
+\begin{table}[h]
+\centering
+\caption{QSC Agent Identity and Protocol Performance Metrics}
+\begin{tabular}{lrrrr}
+\hline
+Operation & Count & Mean (ms) & Min (ms) & Max (ms) \\
+\hline
+Full Agent Identity Generation & 100 & 0.21 & 0.16 & 3.58 \\
+Key Size & 100 & 0.00 & 0.00 & 0.00 \\
+Sign Message & 100 & 0.26 & 0.11 & 1.02 \\
+Signature Size & 100 & 0.00 & 0.00 & 0.00 \\
+Verify Signature & 100 & 0.07 & 0.07 & 0.13 \\
+Handshake Full & 50 & 5.64 & 4.63 & 7.05 \\
+Qrng Query Id & 1000 & 0.00 & 0.00 & 0.01 \\
+Qrng Nonce & 1000 & 0.00 & 0.00 & 0.00 \\
+Qrng Session Key & 1000 & 0.00 & 0.00 & 0.04 \\
+Qkd Establish Key & 100 & 11.78 & 10.03 & 12.54 \\
+Qkd Retrieve Key & 100 & 0.01 & 0.00 & 0.01 \\
+Message Overhead Small & 1 & 0.00 & 0.00 & 0.00 \\
+Message Overhead Large & 1 & 0.00 & 0.00 & 0.00 \\
+Query Delegation Full & 10 & 11.31 & 10.14 & 12.13 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+## Comparative Analysis: PQC vs Classical
+
+### End-to-End Performance
+
+| Metric | PQC (ML-DSA-65) | Classical (Ed25519) | Overhead |
+|--------|-----------------|---------------------|----------|
+| Key Generation | 0.114 ms | 0.058 ms | +97.0% |
+| Signing | 0.315 ms | 0.070 ms | +351.5% |
+| Verification | 0.075 ms | 0.139 ms | -46.2% |
+
+### Cryptographic Artifact Sizes
+
+| Artifact | PQC | Classical | Overhead |
+|----------|-----|-----------|----------|
+| Public Key | 1952 bytes | 32 bytes | +6000.0% |
+| Signature | 3309 bytes | 64 bytes | +5070.3% |
+
+## Scalability Analysis: Fan-Out Performance
+
+### Total Processing Time
+
+| Workers | PQC Time (ms) | Classical Time (ms) | Overhead |
+|---------|---------------|---------------------|----------|
+|       1 |         11.70 |                0.28 | +4015.1% |
+|       5 |         56.58 |                1.14 | +4883.9% |
+|      10 |        116.83 |                2.22 | +5150.8% |
+|      25 |        285.54 |                5.49 | +5098.1% |
+|      50 |        609.37 |               10.87 | +5507.8% |
+
+### System Throughput
+
+| Workers | PQC (req/s) | Classical (req/s) | Ratio |
+|---------|-------------|-------------------|-------|
+|       1 |       85.47 |           3517.17 | 41.15x |
+|       5 |       88.37 |           4404.37 | 49.84x |
+|      10 |       85.60 |           4494.41 | 52.51x |
+|      25 |       87.55 |           4551.11 | 51.98x |
+|      50 |       82.05 |           4601.31 | 56.08x |
+
+### Scaling Efficiency (Time per Worker)
+
+| Workers | PQC (ms/worker) | Classical (ms/worker) |
+|---------|-----------------|------------------------|
+|       1 |           11.70 |                   0.28 |
+|       5 |           11.32 |                   0.23 |
+|      10 |           11.68 |                   0.22 |
+|      25 |           11.42 |                   0.22 |
+|      50 |           12.19 |                   0.22 |
+
+### Key Scalability Findings
+
+- PQC system scales 52.08x from 1 to 50 workers
+- Classical system scales 38.22x from 1 to 50 workers
+- PQC maintains linear scaling
+- Classical maintains sub-linear scaling
+
+**Plots Available:**
+- `plot_total_time.png`: Total processing time vs workers
+- `plot_throughput.png`: System throughput vs workers
+- `plot_overhead.png`: PQC overhead percentage vs workers
+- `plot_time_per_worker.png`: Scaling efficiency
+- `plot_combined.png`: All metrics in one figure
+
+
+## Security Resilience Analysis
+
+### Attack Simulation Results
+
+| Metric | Count | Rate |
+|--------|-------|------|
+| Total Transactions | 100000 | 100.0% |
+| Legitimate Transactions | 95134 | 95.1% |
+| Attacks Injected | 4866 | 4.9% |
+| - Tampered Payloads | 2460 | 2.5% |
+| - Replay Attacks | 2406 | 2.4% |
+
+### Detection Performance
+
+| Attack Type | Injected | Detected | Detection Rate |
+|-------------|----------|----------|----------------|
+| Tampered Payload | 2460 | 2460 | 100.0% |
+| Replay Attack | 2406 | 2406 | 100.0% |
+| **Total** | **4866** | **4866** | **100.0%** |
+
+### Legitimate Transaction Performance
+
+| Metric | Count | Rate |
+|--------|-------|------|
+| Successful | 95134 | 100.0% |
+| Failed | 0 | 0.0% |
+| False Positives | 0 | 0.0% |
+
+### Security Assessment
+
+- ✓ **PASS**: 100% attack detection rate achieved
+- ✓ **PASS**: No false positives detected
+
+### Key Security Findings
+
+1. System processed 100000 transactions with 4866 injected attacks
+2. Attack detection rate: 100.0%
+3. Tampered payload detection: 100.0%
+4. Replay attack detection: 100.0%
+5. Legitimate transaction success rate: 100.0%
+

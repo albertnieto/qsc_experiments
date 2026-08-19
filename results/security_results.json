@@ -1,0 +1,64 @@
+{
+  "total_transactions": 100000,
+  "legitimate_transactions": 95134,
+  "attacks_injected": 4866,
+  "tampered_injected": 2460,
+  "replay_injected": 2406,
+  "attacks_detected": 4866,
+  "tampered_detected": 2460,
+  "replay_detected": 2406,
+  "detection_rate": 100.0,
+  "false_positives": 0,
+  "legitimate_success": 95134,
+  "legitimate_failed": 0,
+  "legitimate_success_rate": 100.0,
+  "measurement_type": "S-simulation",
+  "provenance": "S-simulation: AES-256-GCM ciphertext tampering and stale-nonce replay under one authenticated ML-KEM session",
+  "run_metadata": {
+    "timestamp_utc": "2026-08-18T11:00:54.793847+00:00",
+    "git_revision": "b3442b7af146e873945363d010c183d3a3a29fc9",
+    "python": "3.11.5",
+    "python_architecture": "arm64",
+    "platform": "macOS-26.4.1-arm64-arm-64bit",
+    "cpu": "Apple M3 Pro",
+    "physical_cores": 12,
+    "ram_bytes": 38654705664,
+    "hostname": "redacted",
+    "library_versions": {
+      "liboqs-python": "0.12.0",
+      "cryptography": "44.0.0",
+      "PyNaCl": "1.5.0",
+      "openssl": "OpenSSL 3.0.10 1 Aug 2023"
+    },
+    "warmup_policy": "none",
+    "summary_statistic": "arithmetic mean with min/max",
+    "ci95_method": "1.96 * sample standard deviation / sqrt(n)",
+    "azure_resource_group": "not-applicable",
+    "repetitions": 100000,
+    "seed": 20260811,
+    "algorithms": {
+      "kem": "ML-KEM-768",
+      "signature": "ML-DSA-65",
+      "classical_signature": "Ed25519",
+      "symmetric": "AES-256-GCM",
+      "classical_kex": "ECDH-P256"
+    },
+    "git_dirty": true,
+    "git_status_sha256": "aa7871aa87e7f8211cf44c0e22898fe493c17fb66969d4afd9091f52d5359fcc"
+  },
+  "scope": {
+    "in_scope": [
+      "payload tampering",
+      "stale-nonce replay"
+    ],
+    "out_of_scope": [
+      "compromised agents",
+      "key compromise",
+      "certificate-authority failure",
+      "side channels",
+      "downgrade attacks",
+      "QRNG failure",
+      "prompt/tool injection"
+    ]
+  }
+}
